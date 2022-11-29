@@ -7,6 +7,7 @@
 <%@page import="com.mongodb.client.MongoCollection"%>
 <%@page import="com.mongodb.client.MongoDatabase"%>
 <%@page import="com.mongodb.MongoClient"%>
+<%@page import="member.Member"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -18,10 +19,16 @@
 
 <%
 
-	int port = 27017;
+	/* int port = 27017;
 	
 	String db = "db01";
-	String collection = "people";
+	String collection = "people"; */
+	
+	Member m = new Member();
+	
+	int port = m.getPort();
+	String db = m.getDB();
+	String collection = m.getCollection();
 	
 	MongoClient mongoClient = new MongoClient("localhost", port);
 	MongoDatabase mongoDB = mongoClient.getDatabase(db);
